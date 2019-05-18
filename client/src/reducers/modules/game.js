@@ -15,6 +15,12 @@ export default function GameReducer(state = initialState, action = {}){
         loading: false,
         gameDetail: action.payload     
       };
+    case actionGame.UPDATE_END_GAME:
+      return {
+        ...state,
+        loading: false,
+        gameDetail: {}  
+      };
     case actionGame.ERROR_GAME:
       return {
         ...state,

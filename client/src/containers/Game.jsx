@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { history } from '../App';
-import { createNewGame } from '../reducers/actions/game';
+import { createNewGame, updateEndGame } from '../reducers/actions/game';
 import ScoreTable from '../components/game/scoreTable';
 import GameBoard from '../components/game/gameBoard';
 import EndOfGame from '../components/game/endOfGame';
@@ -120,12 +120,19 @@ class Game extends Component {
 
     checkWinner = (val1, val2) => {
         var resp = false;
-        const { playerOne, playerTwo } = this.props.game.gameDetail;
+        const { playerOne, playerTwo, gameId } = this.props.game.gameDetail;
 
-        if (val1 === 3) resp = playerOne.name;
-        if (val2 === 3) resp = playerTwo.name;
+        if (val1 === 3) resp = playerOne;
+        if (val2 === 3) resp = playerTwo;
 
-        return resp;
+        if(resp) {
+            this.props.updateEndGame({
+                winnerId: resp._id,
+                gameId
+            });
+        }
+        
+        return resp ? resp.name : false;
     }
 
     renderError = () => {
@@ -175,6 +182,6 @@ const mapStateToProps = (state) => {
     return { game };
   }
   
-const actions = { createNewGame }
+const actions = { createNewGame, updateEndGame }
 
 export default withRouter(connect(mapStateToProps, actions)(Game));
