@@ -139,7 +139,7 @@ class Game extends Component {
     
     render() {
     const { turn, round, scoreTable, playerOnePoints, playerTwoPoints, winner, currentPlayerName } = this.state;
-    const { playerOne, playerTwo, gameId } = this.props.game.gameDetail;
+    const { playerOne, playerTwo } = this.props.game.gameDetail;
 
     return (
         <div className="GameContainer">
