@@ -1,5 +1,13 @@
 .EndOfGameComponent {
     margin: 3em auto;
-    max-width: 500px; 
+    width: 500px; 
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 2em;
+
+    .btn {
+        text-decoration: none;
+        display: inline-block;
+        line-height: 35px;
+    }
 }
