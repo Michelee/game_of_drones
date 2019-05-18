@@ -37,8 +37,19 @@ class Home extends Component {
         }
     }
 
+    showError = () => {
+        if(this.state.error) {
+            return (
+                <small className="error">
+                    Please enter both names.
+                </small>
+            )
+        }
+    }
+
     render() {
-        const { namePlayerOne, namePlayerTwo, error } = this.state;
+        const { namePlayerOne, namePlayerTwo } = this.state;
+
         return (
             <div className="HomeContainer">
                 <h1>Game of Drones</h1>
@@ -57,12 +68,7 @@ class Home extends Component {
                         <input type="text" name="namePlayerTwo" value={namePlayerTwo} 
                             onChange={e => this.handleInputChange(e)}/>
                     </div>
-                    {
-                        error &&
-                            <small className="error">
-                                Please enter both names.
-                            </small>
-                    }
+                    {this.showError()}
                     <div className="form-input">
                         <button onClick={() => this.handleSubmit()}>
                             Start
@@ -74,11 +80,6 @@ class Home extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    const { game } = state;
-    return game;
-  }
-  
 const actions = { createNewGame }
 
-export default withRouter(connect(mapStateToProps, actions)(Home));
+export default withRouter(connect(null, actions)(Home));
