@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CreateGameForm = ({ handleInputChange, namePlayerOne, namePlayerTwo, handleSubmit, showError }) => (
+const CreateGameForm = ({ handleInputChange, namePlayerOne, namePlayerTwo, handleSubmit, renderError }) => (
     <div className="container">
         <h3>Enter player's names to start</h3>
 
@@ -14,7 +14,7 @@ const CreateGameForm = ({ handleInputChange, namePlayerOne, namePlayerTwo, handl
             <input type="text" name="namePlayerTwo" value={namePlayerTwo} 
                 onChange={e => handleInputChange(e)}/>
         </div>
-        {showError()}
+        {renderError()}
         <div className="form-input">
             <button onClick={() => handleSubmit()}>
                 Start

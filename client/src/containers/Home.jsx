@@ -38,7 +38,7 @@ class Home extends Component {
         }
     }
 
-    showError = () => {
+    renderError = () => {
         if(this.state.error) {
             return (
                 <small className="error">
@@ -59,7 +59,7 @@ class Home extends Component {
                     namePlayerTwo={namePlayerTwo}
                     handleInputChange={this.handleInputChange}
                     handleSubmit={this.handleSubmit}
-                    showError={this.showError}
+                    renderError={this.renderError}
                 />
             </div>
         )
