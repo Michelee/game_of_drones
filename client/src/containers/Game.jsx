@@ -27,7 +27,7 @@ class Game extends Component {
             round: 1,
             turn: 'movePlayerOne',
             scoreTable: [],
-            winner: 'Michele',
+            winner: false,
             error: false
         }
     }
