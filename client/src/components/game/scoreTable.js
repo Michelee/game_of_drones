@@ -1,17 +1,17 @@
 import React from 'react';
 import '../../styles/components/_scoreTable.scss'; 
 
-const ScoreTable = ({ playerOnePoints, playerTwoPoints, scoreTable}) => (
-    <div className="scoreTable">
+const ScoreTable = ({ playerOneName, playerTwoName, playerOnePoints, playerTwoPoints, scoreTable}) => (
+    <div className="scoreTableComponent">
         <h3>Score Table</h3>
 
         <div className="currentScore">
             <div className="scoreBox">
-                <strong>Player One: </strong>
+                <strong>{playerOneName}: </strong>
                 <span>{playerOnePoints}</span>
             </div>
             <div className="scoreBox">
-                <strong>Player Two: </strong>
+                <strong>{playerTwoName}: </strong>
                 <span>{playerTwoPoints}</span>
             </div>
         </div>

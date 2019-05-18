@@ -1,7 +1,8 @@
-.scoreTable {
-    width: calc(90% / 2);
-    padding: 1em;
+.scoreTableComponent {
+    width: calc(93% / 2);
+    padding: 1em 1em 1.5em;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    min-height: 400px;
 
     h3 {
         margin-top: 0.5em;
@@ -11,6 +12,10 @@
     .currentScore {
         display: flex;
         justify-content: space-around;
+
+        .scoreBox strong {
+            text-transform: capitalize;
+        }
     }
 
     table {
