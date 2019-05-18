@@ -2,19 +2,7 @@
 import * as actionGame from '../constants/actionTypes';
 
 const initialState = {
-  gameDetail: {
-    gameId: '5ce03e8f91c8ca125e8968c0',
-    playerOne: {
-      _id: '5ce03a68b3630b0b4fd05d1b',
-      name: 'michele',
-      __v: 0
-    },
-    playerTwo: {
-      _id: '5ce03e8f91c8ca125e8968bf',
-      name: 'andreina',
-      __v: 0
-    }
-  },
+  gameDetail: {},
   loading: false,
   error: false
 };
