@@ -4,9 +4,6 @@ import { withRouter } from 'react-router-dom';
 import { createNewGame } from '../reducers/actions/game';
 
 class Game extends Component {
-    componentDidMount() {
-        this.props.createNewGame();
-    }
     render() {
         return (
             <h1>Game</h1>

@@ -8,13 +8,10 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            playerOne: '',
-            playerTwo: '',
+            namePlayerOne: '',
+            namePlayerTwo: '',
             error: false
         }
-    }
-    componentDidMount() {
-        this.props.createNewGame();
     }
 
     handleInputChange = e => {
@@ -26,22 +23,22 @@ class Home extends Component {
     }
 
     handleSubmit = () => {
-        const { playerOne, playerTwo } = this.state;
+        const { namePlayerOne, namePlayerTwo } = this.state;
         
-        if(!playerOne || !playerTwo) {
+        if(!namePlayerOne || !namePlayerTwo) {
             this.setState({
                 error: true
             })
         } else {
             this.props.createNewGame({
-                playerOne,
-                playerTwo
+                namePlayerOne,
+                namePlayerTwo
             });
         }
     }
 
     render() {
-        const { playerOne, playerTwo, error } = this.state;
+        const { namePlayerOne, namePlayerTwo, error } = this.state;
         return (
             <div className="HomeContainer">
                 <h1>Game of Drones</h1>
@@ -52,12 +49,12 @@ class Home extends Component {
 
                     <div className="form-input">
                         <label>Player 1 *</label>
-                        <input type="text" name="playerOne" value={playerOne} 
+                        <input type="text" name="namePlayerOne" value={namePlayerOne} 
                             onChange={e => this.handleInputChange(e)}/>
                     </div>
                     <div className="form-input">
                         <label>Player 2 *</label>
-                        <input type="text" name="playerTwo" value={playerTwo} 
+                        <input type="text" name="namePlayerTwo" value={namePlayerTwo} 
                             onChange={e => this.handleInputChange(e)}/>
                     </div>
                     {

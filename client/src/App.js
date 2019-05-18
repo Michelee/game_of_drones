@@ -8,7 +8,7 @@ import Game from './containers/Game';
 import Statistics from './containers/Statistics';
 import './styles/App.scss';
 
-const history = createHistory();
+export const history = createHistory();
 
 class App extends Component {
   render() {

@@ -1,37 +1,39 @@
+import { history } from '../../App';
 import { post } from '../../api/index';
 import * as actionGame from '../constants/actionTypes';
 import {
   URL_NEW_GAME
 } from '../constants/urls';
 
-export const createNewGame = () =>
+export const createNewGame = (payload) =>
   dispatch => {
-    // dispatch(handleLoadingGame());
-    post(URL_NEW_GAME, {})
+    dispatch(handleLoadingGame());
+    post(URL_NEW_GAME, payload)
       .then(response => {
-        console.log(response.data);
+        dispatch(handleNewGame(response.data));
+        history.push('/game');
       })
       .catch(error => {
-        console.log(error);
+        dispatch(handleErrorGame(error));
       });
     }
 
-// export const addFavoriteMovie = (data) => {
-//   return {
-//     type: actionGame.ADD_TO_FAVORITES,
-//     data
-//   }
-// }
+const handleNewGame = (payload) => {
+  return {
+    type: actionGame.CREATE_NEW_GAME,
+    payload
+  }
+}
     
-// const handleLoadingGame = () => {
-//   return {
-//     type: actionGame.LOADING_Game
-//   }
-// }
+const handleLoadingGame = () => {
+  return {
+    type: actionGame.LOADING_GAME
+  }
+}
 
-// const handleErrorGame = (error) => {
-//   return {
-//     type: actionGame.ERROR_Game,
-//     error
-//   }
-// }
+const handleErrorGame = (error) => {
+  return {
+    type: actionGame.ERROR_GAME,
+    error
+  }
+}

@@ -13,8 +13,7 @@ export default function GameReducer(state = initialState, action = {}){
       return {
         ...state,
         loading: false,
-        allMovies: action.data,
-        selectedMovie: false       
+        game: action.payload     
       };
     case actionGame.ERROR_GAME:
       return {
