@@ -3,7 +3,8 @@ import { Provider } from 'react-redux';
 import { Router, Route } from 'react-router-dom';
 import { createBrowserHistory as createHistory } from 'history'
 import configureStore from './reducers/configureStore';
-import Dashboard from './containers/Dashboard';
+import Home from './containers/Home';
+import Game from './containers/Game';
 import Statistics from './containers/Statistics';
 import './styles/App.scss';
 
@@ -14,7 +15,8 @@ class App extends Component {
     return (
       <Provider store={configureStore(history)}>
         <Router history={history}>
-          <Route exact path="/" component={Dashboard} />
+          <Route exact path="/" component={Home} />
+          <Route path="/game" component={Game} />
           <Route path="/statistics" component ={Statistics} />
         </Router>
       </Provider>

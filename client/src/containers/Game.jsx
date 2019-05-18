@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createNewGame } from '../reducers/actions/game';
 
-class Dashboard extends Component {
+class Game extends Component {
     componentDidMount() {
         this.props.createNewGame();
     }
     render() {
         return (
-            <h1>Dashboard</h1>
+            <h1>Game</h1>
         )
     }
 }
@@ -21,4 +21,4 @@ const mapStateToProps = (state) => {
   
 const actions = { createNewGame }
 
-export default withRouter(connect(mapStateToProps, actions)(Dashboard));
+export default withRouter(connect(mapStateToProps, actions)(Game));
