@@ -1,5 +1,5 @@
 module.exports = app => {
-    app.get('/api/newgame', (req, res) => {
+    app.post('/api/newgame', (req, res) => {
         res.send({ resp: 'Hola mundo!'});
     });
 }
