@@ -53,7 +53,7 @@ class Home extends Component {
 
         return (
             <div className="HomeContainer">
-                <h1>Game of Drones</h1>
+                <h1>Welcome to Game of Drones</h1>
                 <CreateGameForm
                     namePlayerOne={namePlayerOne}
                     namePlayerTwo={namePlayerTwo}

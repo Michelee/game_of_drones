@@ -7,6 +7,7 @@ import Home from './containers/Home';
 import Game from './containers/Game';
 import Statistics from './containers/Statistics';
 import './styles/App.scss';
+import Header from './components/common/header';
 
 export const history = createHistory();
 
@@ -15,6 +16,7 @@ class App extends Component {
     return (
       <Provider store={configureStore(history)}>
         <Router history={history}>
+          <Header />
           <Route exact path="/" component={Home} />
           <Route path="/game" component={Game} />
           <Route path="/statistics" component ={Statistics} />

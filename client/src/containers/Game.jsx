@@ -34,7 +34,7 @@ class Game extends Component {
     
     componentDidMount() {
         const { gameDetail } = this.props.game;
-        if(!gameDetail) {
+        if(!gameDetail.gameId) {
             history.push('/');
         } else {
             this.setState({
@@ -139,7 +139,7 @@ class Game extends Component {
     
     render() {
     const { turn, round, scoreTable, playerOnePoints, playerTwoPoints, winner, currentPlayerName } = this.state;
-    const { playerOne, playerTwo } = this.props.game.gameDetail;
+    const { playerOne, playerTwo, gameId } = this.props.game.gameDetail;
 
     return (
         <div className="GameContainer">
@@ -156,8 +156,8 @@ class Game extends Component {
                     />
 
                     <ScoreTable
-                        playerOneName={playerOne.name}
-                        playerTwoName={playerTwo.name}
+                        playerOneName={playerOne ? playerOne.name : ''}
+                        playerTwoName={playerTwo ? playerTwo.name : ''}
                         playerOnePoints={playerOnePoints}
                         playerTwoPoints={playerTwoPoints}
                         scoreTable={scoreTable}
