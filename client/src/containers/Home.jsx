@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createNewGame } from '../reducers/actions/game';
+import CreateGameForm from '../components/home/createGameForm';
 import '../styles/containers/_home.scss';
 
 class Home extends Component {
@@ -53,28 +54,13 @@ class Home extends Component {
         return (
             <div className="HomeContainer">
                 <h1>Game of Drones</h1>
-
-                <div className="container">
-
-                    <h3>Enter player's names to start</h3>
-
-                    <div className="form-input">
-                        <label>Player 1 *</label>
-                        <input type="text" name="namePlayerOne" value={namePlayerOne} 
-                            onChange={e => this.handleInputChange(e)}/>
-                    </div>
-                    <div className="form-input">
-                        <label>Player 2 *</label>
-                        <input type="text" name="namePlayerTwo" value={namePlayerTwo} 
-                            onChange={e => this.handleInputChange(e)}/>
-                    </div>
-                    {this.showError()}
-                    <div className="form-input">
-                        <button onClick={() => this.handleSubmit()}>
-                            Start
-                        </button>
-                    </div>
-                </div>
+                <CreateGameForm
+                    namePlayerOne={namePlayerOne}
+                    namePlayerTwo={namePlayerTwo}
+                    handleInputChange={this.handleInputChange}
+                    handleSubmit={this.handleSubmit}
+                    showError={this.showError}
+                />
             </div>
         )
     }
