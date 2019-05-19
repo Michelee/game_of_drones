@@ -1,8 +1,14 @@
 .scoreTableComponent {
-    width: calc(93% / 2);
+    width: calc((100% / 2) - 1em);
     padding: 1em 1em 1.5em;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     min-height: 400px;
+    margin-left: 1em;
+
+    @media screen and (max-width: 750px) {
+        width: calc(100% - 2em);
+        margin: 0;
+    }
 
     h3 {
         margin-top: 0.5em;

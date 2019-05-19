@@ -1,8 +1,10 @@
 .HomeContainer {
     text-align: center;
+    margin: 2em;
 
     .container {
-        width: 500px;
+        width: calc(100% - 2em);
+        max-width: 500px;
         margin: 1.5em auto;
         padding: 1em;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
