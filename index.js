@@ -13,6 +13,7 @@ require('./models/Player');
 
 // Routes
 require('./routes/gameRoutes')(app); 
+require('./routes/playerRoutes')(app); 
 
 // Serve files for the production environment
 if (process.env.NODE_ENV === 'production') {
@@ -28,3 +29,5 @@ if (process.env.NODE_ENV === 'production') {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
+
+module.exports = app;
