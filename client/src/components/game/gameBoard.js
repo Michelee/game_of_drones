@@ -10,9 +10,9 @@ const GameBoard = ({ playerName, round, turn, handleChange, handleClick, renderE
         <label>Select a move</label>
         <select id="move" name={turn} onChange={e => handleChange(e)}>
             <option value="">Select</option>
-            <option value="rock">Piedra</option>
-            <option value="paper">Papel</option>
-            <option value="scissors">Tijera</option>
+            <option value="rock">Rock</option>
+            <option value="paper">Paper</option>
+            <option value="scissors">Scissors</option>
         </select>
         
         {renderError()}
