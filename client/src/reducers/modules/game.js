@@ -3,6 +3,7 @@ import * as actionGame from '../constants/actionTypes';
 
 const initialState = {
   gameDetail: {},
+  statistics: [],
   loading: false,
   error: false
 };
@@ -20,6 +21,12 @@ export default function GameReducer(state = initialState, action = {}){
         ...state,
         loading: false,
         gameDetail: {}  
+      };
+    case actionGame.SET_STATISTICS:
+      return {
+        ...state,
+        loading: false,
+        statistics: action.payload 
       };
     case actionGame.ERROR_GAME:
       return {

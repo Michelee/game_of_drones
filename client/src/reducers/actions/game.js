@@ -1,9 +1,10 @@
 import { history } from '../../App';
-import { post } from '../../api/index';
+import { post, get } from '../../api/index';
 import * as actionGame from '../constants/actionTypes';
 import {
   URL_NEW_GAME,
-  URL_END_GAME
+  URL_END_GAME,
+  URL_GET_STATISTICS
 } from '../constants/urls';
 
 export const createNewGame = (payload) =>
@@ -31,6 +32,25 @@ export const updateEndGame = (payload) =>
         dispatch(handleErrorGame(error));
       });
     }
+
+export const getStatistics = () =>
+  dispatch => {
+    dispatch(handleLoadingGame());
+    get(URL_GET_STATISTICS)
+      .then(response => {
+        dispatch(handleStatistics(response.data));
+      })
+      .catch(error => {
+        dispatch(handleErrorGame(error));
+      });
+    }
+
+const handleStatistics = (payload) => {
+  return {
+    type: actionGame.SET_STATISTICS,
+    payload
+  }
+}
 
 const handleEndGame = () => {
   return {

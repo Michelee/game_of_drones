@@ -46,4 +46,9 @@ module.exports = app => {
             res.send({text: 'Successfully saved'});
         }
     });
+
+    app.get('/api/statistics', async (req, res) => {
+        const player = await Player.find({});
+        res.send(player);
+    });
 };
